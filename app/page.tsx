@@ -78,15 +78,15 @@ const [menuOpen, setMenuOpen] = useState(false);
 
 ////////////////////////////////////fonction de input /////////////////////////////////
 //recherche instantané input
-// const handleSearch = (value) => {
-//   setSearch(value);
-//   const filtered = data.filter((item) =>
-//     item.toLowerCase().includes(value.toLowerCase())
-//   );
-//   setResults(filtered);
-//   setSelectedIndex(-1);
-//   setOpen(true);
-// };
+const handleSearch = (value: string) => {
+  setSearch(value);
+
+  const filtered = data.filter((item: string) =>
+    item.toLowerCase().includes(value.toLowerCase())
+  );
+
+  setFilteredData(filtered);
+};
 
   // sauvegarde historique input
   const selectItem = (item) => {
