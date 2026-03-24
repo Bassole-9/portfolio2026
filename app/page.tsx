@@ -86,15 +86,13 @@ const handleSearch = (value: string) => {
 };
 
   // sauvegarde historique input
-  const selectItem = (item) => {
-    setSearch(item);
-    setHistory((prev) => {
-      const newHistory = [item, ...prev.filter((h) => h !== item)];
-      return newHistory.slice(0, 5);
-    });
-
-    setOpen(false);
-  };
+  const selectItem = (item: string) => {
+  setSearch(item);
+  setHistory((prev) => {
+    const newHistory = [item, ...prev.filter((h: string) => h !== item)];
+    return newHistory.slice(0, 5);
+  });
+};
 
   //clavier navigation input
   const handleKeyDown = (e) => {
