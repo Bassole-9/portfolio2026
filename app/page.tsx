@@ -80,12 +80,9 @@ const [menuOpen, setMenuOpen] = useState(false);
 //recherche instantané input
 const handleSearch = (value: string) => {
   setSearch(value);
-
-  const filtered = data.filter((item: string) =>
+  const filtered = data.filter((item) =>
     item.toLowerCase().includes(value.toLowerCase())
   );
-
-  setFilteredData(filtered);
 };
 
   // sauvegarde historique input
