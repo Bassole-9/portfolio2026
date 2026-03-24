@@ -17,11 +17,12 @@ const Globe = dynamic(() => import("react-globe.gl"), {
 
 export default function Home() {
 //////////////////////////////////////////////////// State pour bar de recherche
-const [search, setSearch] = useState("");
-const [results, setResults] = useState([]);
-const [history, setHistory] = useState([]);
-const [open, setOpen] = useState(false);
-const [selectedIndex, setSelectedIndex] = useState(-1);
+const [results, setResults] = useState<string[]>([]);
+const [history, setHistory] = useState<string[]>([]);
+const [search, setSearch] = useState<string>("");
+const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+const [open, setOpen] = useState<boolean>(false);
+
 
 //////////////////////////////////////////////////// State pour formulaire
 const [formData, setFormData] = useState({
@@ -95,28 +96,27 @@ const handleSearch = (value: string) => {
 };
 
   //clavier navigation input
-  const handleKeyDown = (e) => {
+const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  if (e.key === "ArrowDown") {
+    setSelectedIndex((prev: number) =>
+      prev < results.length - 1 ? prev + 1 : prev
+    );
+  }
 
-    if (e.key === "ArrowDown") {
-      setSelectedIndex((prev) =>
-        prev < results.length - 1 ? prev + 1 : prev
-      );
-    }
+  if (e.key === "ArrowUp") {
+    setSelectedIndex((prev: number) =>
+      prev > 0 ? prev - 1 : prev
+    );
+  }
 
-    if (e.key === "ArrowUp") {
-      setSelectedIndex((prev) =>
-        prev > 0 ? prev - 1 : prev
-      );
-    }
+  if (e.key === "Enter" && selectedIndex >= 0) {
+    selectItem(results[selectedIndex]);
+  }
 
-    if (e.key === "Enter" && selectedIndex >= 0) {
-      selectItem(results[selectedIndex]);
-    }
-
-    if (e.key === "Escape") {
-      setOpen(false);
-    }
-  };
+  if (e.key === "Escape") {
+    setOpen(false);
+  }
+};
 
 
 
@@ -139,26 +139,27 @@ const handleSearch = (value: string) => {
 }, [search]);
 
 //recuperation des donnée api
-  const fetchResults = async () => {
+  const fetchResults = async (): Promise<void> => {
   try {
-    const res = await axios.get(
+    const res = await axios.get<string[]>(
       `http://localhost:5000/search?q=${search}`
     );
     setResults(res.data);
   } catch (err) {
     console.log(err);
   }
-
 };
 //////////////Fermer dropdown clic extérieur
 
 useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (searchRef.current && !searchRef.current.contains(event.target)) {
-      setOpen(false);
-    }
-  };
-
+  const handleClickOutside = (event: MouseEvent) => {
+  if (
+    searchRef.current &&
+    !searchRef.current.contains(event.target as Node)
+  ) {
+    setOpen(false);
+  }
+};
   document.addEventListener("mousedown", handleClickOutside);
 
   return () => {
@@ -186,14 +187,13 @@ useEffect(() => {
 
 ////////changer language
 
-const changeLang = (code) => {
+const changeLang = (code: string) => {
   setLang(code);
   setOpenLang(false);
 };
 
-
 ///////////////globe qui tourne 
-const globeRef = useRef();
+const globeRef = useRef<any>(null);
 
 useEffect(() => {
   let frameId;
@@ -237,37 +237,37 @@ const cities = [
 
 ////////////////////////////////////fonction de formulaire /////////////////////////////////
 
-const handleChange = (e) => {
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const { name, value } = e.target;
-  setFormData({
-    ...formData,
+
+  setFormData((prev) => ({
+    ...prev,
     [name]: value
-  });
+  }));
 };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
 
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
     const res = await axios.post(
       "http://localhost:5000/register",
       formData
     );
+
     console.log(res.data);
 
-    // nettoyer après succès
     setFormData({
       name: "",
       email: "",
       text: "",
-      password :"",
+      password: "",
     });
+
   } catch (error) {
-
     console.log(error);
-
   }
-
 };
 
 
@@ -324,9 +324,9 @@ const handleSubmit = async (e) => {
 };
 
 
-    const refSection = useRef(null);
+const refSection = useRef<HTMLDivElement | null>(null);
     // const refText = useRef(null);
-    const searchRef = useRef(null);
+   const searchRef = useRef<HTMLDivElement | null>(null);
 
     const { scrollYProgress: scrollYProgress } = useScroll({
     target: refSection,
