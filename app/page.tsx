@@ -1251,11 +1251,10 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                       <div>
                                       <label className ="block mb-2 font-medium">Message</label>
                                       <textarea
-                                      type="text"
                                       name="text"
                                       value={formData.text}
                                       onChange={handleChange}
-                                      rows="5"
+                                      rows={5}
                                       placeholder="Décrivez votre projet..... "
                                       className ="w-full border border-gray-300 text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
                                       </div>
