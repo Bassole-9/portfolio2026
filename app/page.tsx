@@ -574,7 +574,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                       {/* auth */}
                       <div className="hidden md:flex justify-center items-center gap-4 mr-6 ">
                                 <a
-                                href="/cv_bassol.pdf"
+                                href="/cv-bassole.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download
@@ -634,22 +634,17 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                                           <div className="w-full flex justify-start  gap-4 mt-6">
                                               <a
-                                                href="/cv_bassol.pdf"
+                                                href="/cv-bassole.pdf"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 download
                                                 className="flex bg-black text-white p-1 px-2 justify-center items-center gap-2 hover:bg-gray-500 transition cursor-pointer rounded-xl"
                                                 >
                                                 <div><FiDownload/>
-                                                </div>Cv
+                                                </div>Telecharger Cv
                                               </a>
                                                 <div className="relative">
-                                                  <button
-                                                    onClick={() => setOpenLang(!openLang)}
-                                                    className="flex items-center gap-3 bg-black text-white px-4 py-2 rounded-full cursor-pointer hover:bg-gray-500 transition cursor-pointer rounded-xl"
-                                                  >
-                                                    <FiGlobe /> {languages.find(l => l.code === lang)?.label}
-                                                  </button>
+                                                  
 
                                                   {openLang && (
                                                     <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-xl p-2 w-40 z-50">
