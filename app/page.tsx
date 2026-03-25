@@ -254,7 +254,9 @@ const cities: City[] = [
 
 ////////////////////////////////////fonction de formulaire /////////////////////////////////
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
   const { name, value } = e.target;
 
   setFormData((prev) => ({
