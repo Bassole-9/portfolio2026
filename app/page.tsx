@@ -31,11 +31,23 @@ type FormData = {
   text: string;
 };
 
+type FormErrors = {
+  [K in keyof FormData]: string;
+};
+
 const [formData, setFormData] = useState<FormData>({
   name: "",
   email: "",
-  text: ""
+  text: "",
 });
+
+const [errors, setErrors] = useState<FormErrors>({
+  name: "",
+  email: "",
+  text: "",
+});
+
+
 
 //////////////state pour over
 const [hover, setHover] = useState<boolean>(false);
@@ -261,7 +273,13 @@ const handleChange = (
 
   setFormData((prev) => ({
     ...prev,
-    [name]: value
+    [name]: value,
+  }));
+
+  // Supprime l'erreur du champ
+  setErrors((prev) => ({
+    ...prev,
+    [name]: "",
   }));
 };
 
@@ -269,15 +287,53 @@ const handleChange = (
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
+  const newErrors: FormErrors = {
+    name: "",
+    email: "",
+    text: "",
+  };
+
+  let hasError = false;
+
+  // Nom
+  if (!formData.name.trim()) {
+    newErrors.name = "Le nom est requis";
+    hasError = true;
+  }
+
+  // Email
+  if (!formData.email.trim()) {
+    newErrors.email = "L'email est requis";
+    hasError = true;
+  } else {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Email invalide";
+      hasError = true;
+    }
+  }
+
+  // Message
+  if (!formData.text.trim()) {
+    newErrors.text = "Le message est requis";
+    hasError = true;
+  }
+
+  setErrors(newErrors);
+
+  if (hasError) return;
+
   try {
-    const res = await axios.post(
-      "http://localhost:5000/register",
-      formData
-    );
 
-    console.log(res.data);
 
+    // Reset
     setFormData({
+      name: "",
+      email: "",
+      text: "",
+    });
+
+    setErrors({
       name: "",
       email: "",
       text: "",
@@ -1182,7 +1238,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                           </h2>
 
                                           <div className="grid md:grid-cols-3 gap-8">
-                                              <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+                                              <div className="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition">
                                               <div className="text-indigo-600 text-4xl mb-4">💻</div>
                                               <h3 className="text-xl font-semibold mb-3">Développement Web</h3>
                                               <p className="text-gray-600">
@@ -1191,7 +1247,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                               </div>
 
 
-                                              <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+                                              <div className="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition">
                                               <div className="text-indigo-600 text-4xl mb-4">📱</div>
                                               <h3 className="text-xl font-semibold mb-3">Applications Mobile</h3>
                                               <p className="text-gray-600">
@@ -1199,7 +1255,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                               </p>
                                               </div>
 
-                                              <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+                                              <div className="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition">
                                               <div className="text-indigo-600 text-4xl mb-4">🎨</div>
                                               <h3 className="text-xl font-semibold mb-3">UI / UX Design</h3>
                                               <p className="text-gray-600">
@@ -1213,60 +1269,66 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                               {/*section Contact*/}
                               <section className ="py-40 bg-gray-100" id="contact">
-                                <div className ="max-w-3xl mx-auto px-6 bg-gray-300 p-7 rounded-xl">
+                                <div className ="max-w-3xl mx-auto px-9 bg-gray-300 p-9 rounded-2xl">
 
                                       <h2 className ="text-4xl font-bold text-center mb-10">
                                       Contactez-moi
                                       </h2>
+                                  <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg space-y-6">
 
-                                      <form onSubmit={handleSubmit} className ="bg-white p-8 rounded-xl shadow-lg space-y-6">
-
-                                      <div>
-                                      <label className ="block mb-2 font-medium">Nom</label>
+                                    <div>
+                                      <label className="block mb-2 font-medium">Nom</label>
                                       <input
-                                      type="text"
-                                      name="name"
-                                      value={formData.name}
-                                      onChange={handleChange}
-                                      placeholder="Bassole arnaud"
-                                      className ="w-full border border-gray-300 text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
-                                      </div>
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="Bassole arnaud"
+                                        className={`w-full border text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
+                                        ${errors.name ? "border-red-500 focus:ring-red-500 transition" : "border-gray-300 focus:ring-indigo-500 transition"}`}
+                                      />
+                                      {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                                    </div>
 
-                                      <div>
-                                      <label className ="block mb-2 font-medium">Email</label>
+                                    <div>
+                                      <label className="block mb-2 font-medium">Email</label>
                                       <input
-                                      type="email"
-                                      name="email"
-                                      value={formData.email}
-                                      onChange={handleChange}
-                                      placeholder="Bassole@example.com"
-                                      className ="w-full border text-xl border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
-                                      </div>
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="Bassole@example.com"
+                                        className={`w-full border text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
+                                        ${errors.email ? "border-red-500 focus:ring-red-500 transition" : "border-gray-300 focus:ring-indigo-500 transition"}`}
+                                      />
+                                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                                    </div>
 
-                                      <div>
-                                      <label className ="block mb-2 font-medium">Message</label>
+                                    <div>
+                                      <label className="block mb-2 font-medium">Message</label>
                                       <textarea
-                                      name="text"
-                                      value={formData.text}
-                                      onChange={handleChange}
-                                      rows={5}
-                                      placeholder="Décrivez votre projet..... "
-                                      className ="w-full border border-gray-300 text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                                        name="text"
+                                        value={formData.text}
+                                        onChange={handleChange}
+                                        rows={5}
+                                        placeholder="Décrivez votre projet....."
+                                        className={`w-full border text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
+                                        ${errors.text ? "border-red-500 focus:ring-red-500 transition" : "border-gray-300 focus:ring-indigo-500 transition"}`}
+                                      ></textarea>
+                                      {errors.text && <p className="text-red-500 text-sm mt-1">{errors.text}</p>}
+                                    </div>
+
+                                    <button
+                                      type="submit"
+                                      className="w-full flex justify-center gap-2 items-center bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition cursor-pointer"
+                                    >
+                                      <div>Envoyer</div>
+                                      <div>
+                                        <BsFillSendFill />
                                       </div>
+                                    </button>
 
-                                          <button
-                                          type="submit"
-                                          className ="w-full flex justify-center gap-2 items-center bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition cursor-pointer">
-                                            <div>
-                                                Envoyer
-                                            </div>
-                                            <div>
-                                                <BsFillSendFill/>
-                                            </div>
-                                          
-                                          </button>
-
-                                      </form>
+                                  </form>
 
                                 </div>
                               </section>
