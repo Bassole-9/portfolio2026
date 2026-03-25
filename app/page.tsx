@@ -695,7 +695,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                   >
                                     Étudiant en Informatique Développeur d'Applications
                                     <span className="mt-8 text-2xl font-semibold text-gray-600"><br/>
-                                      passionné par la creation de sites web perfomants et l’intelligence artificielle . certfifié<br/> par
+                                      passionné par la création de site web perfomant et de l’intelligence artificielle . certfifié<br/> par
                                     Nan Digital Academy et Growing Consulting
                                     </span>
                                   </motion.p>
