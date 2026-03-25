@@ -754,6 +754,19 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                       passionné par la création de site web perfomant et de l’intelligence artificielle . certfifié<br/> par
                                     Nan Digital Academy et Growing Consulting
                                     </span>
+                                     <span className="w-full flex justify-center mt-25 ">
+                                      <span className="flex justify-center items-center gap-2 border-1 border-gray-300 p-2 rounded-full bg-white text-xl hover:scale-110 hover:border-green-300 transition">
+                                        <span className="w-2 h-2 bg-green-500 rounded-full animate-heartbeat shadow-md shadow-green-400/50">
+                                         
+                                        </span>
+                                        <span className="text-sm/6 text-black">
+                                          Disponible pour des nouveaux projets
+                                        </span>
+                                          
+                                      </span>    
+                                     </span>
+                                        
+                                     
                                   </motion.p>
 
                               </div>
@@ -762,7 +775,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                           {/*Hero section */}
                           <section className="h-[80vh] bg-gray-100 flex items-center" >
-                            <div className="max-w-7xl mx-auto px-10 mt-40">
+                            <div className="max-w-7xl mx-auto px-10 mt-10">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-18">
                                 <div className="bg-gray-900 text-white p-6 rounded-2xl">
                                     <h1 className="text-5xl font-bold mb-6">
