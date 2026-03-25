@@ -124,19 +124,17 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
   //////////////recuperation des données d'un API et rechercher a l'interieur ////////////
 
   // évite trop de requêtes
-  useEffect(() => {
-
-  const timer = setTimeout(() => {
-
+useEffect(() => {
+  const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
     if (search.trim() !== "") {
       fetchResults();
     }
-
   }, 300);
 
   return () => clearTimeout(timer);
-
 }, [search]);
+
+
 
 //recuperation des donnée api
   const fetchResults = async (): Promise<void> => {
@@ -196,12 +194,12 @@ const changeLang = (code: string) => {
 const globeRef = useRef<any>(null);
 
 useEffect(() => {
-  let frameId;
+  let frameId: number;
 
   const rotateGlobe = () => {
     if (globeRef.current) {
       globeRef.current.controls().autoRotate = true;
-      globeRef.current.controls().autoRotateSpeed = 2; // ajuste la vitesse
+      globeRef.current.controls().autoRotateSpeed = 2;
     }
     frameId = requestAnimationFrame(rotateGlobe);
   };
@@ -262,7 +260,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       name: "",
       email: "",
       text: "",
-      password: "",
     });
 
   } catch (error) {
