@@ -25,19 +25,31 @@ const [open, setOpen] = useState<boolean>(false);
 
 
 //////////////////////////////////////////////////// State pour formulaire
-const [formData, setFormData] = useState({
+type FormData = {
+  name: string;
+  email: string;
+  text: string;
+};
+
+const [formData, setFormData] = useState<FormData>({
   name: "",
   email: "",
   text: ""
 });
 
 //////////////state pour over
- const [hover, setHover] = useState(false);
+const [hover, setHover] = useState<boolean>(false);
 
 
 /////////////tableau language
-const languages = [
-  { code: "fr", label: "Français" , drapeau:{} },
+type Language = {
+  code: string;
+  label: string;
+  drapeau?: object; // optionnel
+};
+
+const languages: Language[] = [
+  { code: "fr", label: "Français", drapeau: {} },
   { code: "en", label: "English" },
   { code: "es", label: "Español" },
   { code: "zh", label: "中文" },
@@ -50,7 +62,7 @@ const languages = [
 ];
 
 /////////////tableau data
-const data = [
+const data: string[] = [
   "UI Designer",
   "UX Designer",
   "Web Designer",
@@ -60,19 +72,18 @@ const data = [
 ];
 
 ////////////state pour detail articles
-const [selectedItem, setSelectedItem] = useState(null);
+const [selectedItem, setSelectedItem] = useState<Project | null>(null);
 
 
 ///////////state pour changer language
-const [lang, setLang] = useState("fr");
-const [openLang, setOpenLang] = useState(false);
-
+const [lang, setLang] = useState<string>("fr");
+const [openLang, setOpenLang] = useState<boolean>(false);
 
 
 
 
 ////////////state menu open et close
-const [menuOpen, setMenuOpen] = useState(false);
+const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
 
 
@@ -170,11 +181,11 @@ useEffect(() => {
 
 
 useEffect(() => {
-  function handleResize() {
+  const handleResize = (): void => {
     if (window.innerWidth >= 768) {
       setMenuOpen(false);
     }
-  }
+  };
 
   window.addEventListener("resize", handleResize);
 
@@ -182,6 +193,8 @@ useEffect(() => {
     window.removeEventListener("resize", handleResize);
   };
 }, []);
+
+
 
 ////////changer language
 
@@ -210,22 +223,28 @@ useEffect(() => {
 }, []);
 
 
+const handleGlobeReady = (): void => {
+  const controls = globeRef.current?.controls();
 
-
-const handleGlobeReady = () => {
-  const controls = globeRef.current.controls();
+  if (!controls) return;
 
   controls.autoRotate = true;
-  controls.enableZoom = false; // optionnel
+  controls.enableZoom = false;
 };
 
-const cities = [
-    { lat: 48.85, lng: 2.35 },
-    { lat: 28.61, lng: 77.20 },
-    { lat: 35.68, lng: 139.69 },
-    { lat: 1.35, lng: 103.81 },
-    { lat: -33.86, lng: 151.20 }
-  ];
+
+type City = {
+  lat: number;
+  lng: number;
+};
+
+const cities: City[] = [
+  { lat: 48.85, lng: 2.35 },
+  { lat: 28.61, lng: 77.20 },
+  { lat: 35.68, lng: 139.69 },
+  { lat: 1.35, lng: 103.81 },
+  { lat: -33.86, lng: 151.20 }
+];
 
 
 
@@ -268,12 +287,20 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
 
+type Project = {
+  img: string;
+  direction: number;
+  nom: string;
+  definition: string;
+  année: string;
+  link: string;
+  link2: string;
+  stack: string[];
+  role: string;
+  Timeline: string;
+};
 
-  
-
-  
-
-  const items = [
+  const items: Project[] = [
     { img: "e-commerce.png",
       direction: -100,
       nom:"E-commerce",
@@ -310,14 +337,14 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     },
   ];
 
-  const logos = {
-  "React": "/logos/react.png",
+ const logos: Record<string, string> = {
+  React: "/logos/react.png",
   "Node.js": "/logos/node.png",
-  "MongoDB": "/logos/mongo.png",
-  "Tailwind": "/logos/tailwind.png",
-  "Angular": "/logos/angular.png",
-  "VueJS": "/logos/VueJs.png",
-  "Css": "/logos/Css.png",
+  MongoDB: "/logos/mongo.png",
+  Tailwind: "/logos/tailwind.png",
+  Angular: "/logos/angular.png",
+  VueJS: "/logos/VueJs.png",
+  Css: "/logos/Css.png",
 };
 
 
