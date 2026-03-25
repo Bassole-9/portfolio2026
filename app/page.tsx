@@ -630,7 +630,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                       {/* auth */}
                       <div className="hidden md:flex justify-center items-center gap-4 mr-6 ">
                                 <a
-                                href="/cv_Bassole.pdf"
+                                href="/cv-Bassole.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download
@@ -690,7 +690,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                                           <div className="w-full flex justify-start  gap-4 mt-6">
                                               <a
-                                                href="/cv_Bassole.pdf"
+                                                href="/cv-Bassole.pdf"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 download
