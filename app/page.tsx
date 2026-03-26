@@ -726,7 +726,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                           {/*les Texte qui apparaît lettre par lettre */}
 
-                            <div className="bg-[#DFDBE5] bg-repeat bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20xmlns%3D%27http://www.w3.org/2000/svg%27%3E%3Cpath%20d%3D%27M0%200h16v2h-6v6h6v8H8v-6H2v6H0V0zm4%204h2v2H4V4zm8%208h2v2h-2v-2zm-8%200h2v2H4v-2zm8-8h2v2h-2V4z%27%20fill%3D%27%239C92AC%27%20fill-opacity%3D%270.05%27%20fill-rule%3D%27evenodd%27/%3E%3C/svg%3E')] text-center text-sm + md:text-lg + lg:text-2xl rounded py-30 bg-gray-100" id="home">
+                            <div className="bg-[#DFDBE5] bg-repeat bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20xmlns%3D%27http://www.w3.org/2000/svg%27%3E%3Cpath%20d%3D%27M0%200h16v2h-6v6h6v8H8v-6H2v6H0V0zm4%204h2v2H4V4zm8%208h2v2h-2v-2zm-8%200h2v2H4v-2zm8-8h2v2h-2V4z%27%20fill%3D%27%239C92AC%27%20fill-opacity%3D%270.05%27%20fill-rule%3D%27evenodd%27/%3E%3C/svg%3E')] text-center text-sm + md:text-lg + lg:text-2xl rounded py-30 bg-gray-100 p-2" id="home">
                               <div>
                                 <h1 className="text-6xl font-bold text-center text-black">
                                   {text.split("").map((letter, i) => (
@@ -774,9 +774,9 @@ const refSection = useRef<HTMLDivElement | null>(null);
                             </div>
 
                           {/*Hero section */}
-                          <section className="h-[80vh] bg-gray-100 flex items-center" >
+                          <section className="h-[90vh] bg-gray-100 flex items-center " >
                             <div className="max-w-7xl mx-auto px-10 mt-30">
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-18">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-18 ">
                                 <div className="bg-gray-900 text-white p-6 rounded-2xl">
                                     <h1 className="text-5xl font-bold mb-6">
                                     Construis des sites modernes 🚀
@@ -880,7 +880,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                           </section>
 
                         {/*motion quand tu scroll : image s'affiche et vas vers le haut  */ }
-                          <div className="py-20 bg-gray-100" id="Portfolio">
+                          <div className="py-30 bg-gray-100" id="Portfolio">
                             <div className="max-w-6xl mx-auto px-10 grid md:grid-cols-2 gap-15 items-center bg-gray-100 py-30 px-4 ">
                             
                                 <div className="max-w-3xl mx-auto bg-gray-100 rounded-xl shadow-xl overflow-hidden ">
@@ -1079,12 +1079,12 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                                           </p>
 
                                                         </div>
-                                                        <div className="mt-4 w-[290] grid grid-cols-4 gap-8 ">
+                                                        <div className="mt-4 w-[280]  grid grid-cols-2 lg:grid-cols-3 gap-8 ">
                                                           {
                                                             item.stack.map((item,i)=>(
                                                               <span
                                                               key={i}
-                                                              className="text-xs w-full text-white font-bold text-center bg-indigo-200 rounded-md "
+                                                              className="text-xs w-full text-white font-bold text-center bg-blue-500 rounded-md "
                                                               >
                                                                 {item}
                                                               </span>
