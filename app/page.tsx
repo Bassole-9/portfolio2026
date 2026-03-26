@@ -742,7 +742,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                 </h1>
 
                               </div>
-                              <div >
+                              <div className="mb-70">
                                 <motion.p
                                     className="font-serif mt-8 text-5xl font-semibold text-blue-600 text-center "
                                     initial={{ opacity: 0, y: 20 }}
@@ -770,12 +770,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                   </motion.p>
 
                               </div>
-
-                            </div>
-
-                          {/*Hero section */}
-                          <section className="h-[90vh] bg-gray-100 flex items-center " >
-                            <div className="max-w-7xl mx-auto px-10 mt-30">
+<div className="max-w-7xl mx-auto px-10 mt-40">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-18 ">
                                 <div className="bg-gray-900 text-white p-6 rounded-2xl">
                                     <h1 className="text-5xl font-bold mb-6">
@@ -876,8 +871,10 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                 </div>
                               </div>
                             </div>
+                            </div>
 
-                          </section>
+                          {/*Hero section */}
+                          
 
                         {/*motion quand tu scroll : image s'affiche et vas vers le haut  */ }
                           <div className="py-30 bg-gray-100" id="Portfolio">
