@@ -659,7 +659,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
 
                       </div>
-                      <div className="md:hidden">
+                      <div className="md:hidden text-black">
                             <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl">
                                 ☰
                             </button>
@@ -726,9 +726,9 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                           {/*les Texte qui apparaît lettre par lettre */}
 
-                            <div className="bg-[#DFDBE5] bg-repeat bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20xmlns%3D%27http://www.w3.org/2000/svg%27%3E%3Cpath%20d%3D%27M0%200h16v2h-6v6h6v8H8v-6H2v6H0V0zm4%204h2v2H4V4zm8%208h2v2h-2v-2zm-8%200h2v2H4v-2zm8-8h2v2h-2V4z%27%20fill%3D%27%239C92AC%27%20fill-opacity%3D%270.05%27%20fill-rule%3D%27evenodd%27/%3E%3C/svg%3E')] text-center text-sm + md:text-lg + lg:text-2xl rounded py-40 bg-gray-100" id="home">
+                            <div className="bg-[#DFDBE5] bg-repeat bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20xmlns%3D%27http://www.w3.org/2000/svg%27%3E%3Cpath%20d%3D%27M0%200h16v2h-6v6h6v8H8v-6H2v6H0V0zm4%204h2v2H4V4zm8%208h2v2h-2v-2zm-8%200h2v2H4v-2zm8-8h2v2h-2V4z%27%20fill%3D%27%239C92AC%27%20fill-opacity%3D%270.05%27%20fill-rule%3D%27evenodd%27/%3E%3C/svg%3E')] text-center text-sm + md:text-lg + lg:text-2xl rounded py-30 bg-gray-100" id="home">
                               <div>
-                                <h1 className="text-6xl font-bold text-center">
+                                <h1 className="text-6xl font-bold text-center text-black">
                                   {text.split("").map((letter, i) => (
                                     <motion.span
                                       key={i}
@@ -754,7 +754,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                       passionné par la création de site web perfomant et de l’intelligence artificielle . certfifié<br/> par
                                     Nan Digital Academy et Growing Consulting
                                     </span>
-                                     <span className="w-full flex justify-center mt-25 ">
+                                     <span className="w-full flex justify-center mt-15 ">
                                       <span className="flex justify-center items-center gap-2 border-1 border-gray-300 p-2 rounded-full bg-white text-xl hover:scale-110 hover:border-green-300 transition">
                                         <span className="w-2 h-2 bg-green-500 rounded-full animate-heartbeat shadow-md shadow-green-400/50">
                                          
@@ -775,7 +775,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                           {/*Hero section */}
                           <section className="h-[80vh] bg-gray-100 flex items-center" >
-                            <div className="max-w-7xl mx-auto px-10 mt-10">
+                            <div className="max-w-7xl mx-auto px-10 mt-30">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-18">
                                 <div className="bg-gray-900 text-white p-6 rounded-2xl">
                                     <h1 className="text-5xl font-bold mb-6">
@@ -881,7 +881,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                         {/*motion quand tu scroll : image s'affiche et vas vers le haut  */ }
                           <div className="py-20 bg-gray-100" id="Portfolio">
-                            <div className="max-w-6xl mx-auto px-10 grid md:grid-cols-2 gap-15 items-center bg-gray-100 py-40 px-4 ">
+                            <div className="max-w-6xl mx-auto px-10 grid md:grid-cols-2 gap-15 items-center bg-gray-100 py-30 px-4 ">
                             
                                 <div className="max-w-3xl mx-auto bg-gray-100 rounded-xl shadow-xl overflow-hidden ">
 
@@ -939,10 +939,10 @@ const refSection = useRef<HTMLDivElement | null>(null);
                           </div>
 
                           {/*Outils et Tech*/}
-                          <section className="py-40 bg-blue-100" id="outils">
+                          <section className="py-30 bg-blue-100" id="outils">
                                 <div className="max-w-7xl mx-auto px-6">
 
-                                  <h2 className="text-3xl font-bold text-center mb-16">
+                                  <h2 className="text-3xl text-black font-bold text-center mb-16">
                                     Outils et technologie
                                   </h2>
 
@@ -1040,11 +1040,11 @@ const refSection = useRef<HTMLDivElement | null>(null);
                           </section>
 
                           {/*motion quand tu scroll : image s'affiche gauche vers le centre, droite vers le centre  */}
-                          <div className="py-40 + bg-gray-100 flex + items-center" id="projet">
+                          <div className="py-30 + bg-gray-100 flex + items-center" id="projet">
                               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                                 <div>
-                                  <h1 className="font-bold">Projet récent</h1>
+                                  <h1 className="font-bold text-black">Projet récent</h1>
                                   <p className="text-sm/6 text-gray-700">selection de mes meilleurs projet</p>
                                 </div>
                                     <div className="grid grid-cols-1 gap-7">
@@ -1072,7 +1072,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                                                         </div>
                                                         <div className="mt-6 " >
-                                                          <h1 className="font-bold ">{item.nom}</h1>
+                                                          <h1 className="font-bold text-black">{item.nom}</h1>
                                                           <p className="text-gray-600 text-sm/6">{item.année}</p>
                                                           <p className="text-gray-600 text-sm/6">
                                                               {item.definition}
@@ -1084,7 +1084,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                                             item.stack.map((item,i)=>(
                                                               <span
                                                               key={i}
-                                                              className="text-xs w-full text-center bg-indigo-200 rounded-md "
+                                                              className="text-xs w-full text-white font-bold text-center bg-indigo-200 rounded-md "
                                                               >
                                                                 {item}
                                                               </span>
@@ -1120,11 +1120,11 @@ const refSection = useRef<HTMLDivElement | null>(null);
                           </div>
 
                           {/*motion quand tu scroll : les images superposé bougent à des vitesses différentes  */}
-                          <section className="py-40 bg-blue-100" id="parcourt">
+                          <section className="py-30 bg-blue-100" id="parcourt">
                                   <div className="max-w-7xl mx-auto px-14 sm:px-16 lg:px-8">
 
                                     <div className="flex justify-center items-center">
-                                      <h1 className="font-bold text-6xl mb-9">Mon parcourt en tant que Developpeur Web </h1>
+                                      <h1 className="font-bold text-6xl mb-9 text-black">Mon parcourt en tant que Developpeur Web </h1>
                                     </div>
 
                                     <div className="grid md:grid-cols-2 gap-30 items-center">
@@ -1153,8 +1153,8 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                       {/* Texte */}
                                       <div className="bg-white rounded-2xl text-center p-7 ">
                                         <div className="flex justify-center items-center flex-col p-3">
-                                          <p className="w-full flex mb-1 font-bold text-2xl">Année scolaire 2025 :</p>
-                                          <p className="text-xl">
+                                          <p className="w-full flex mb-1 font-bold text-2xl text-black">Année scolaire 2025 :</p>
+                                          <p className="text-xl text-black">
                                                 programme intensif axé sur le Développement web full Stack à Growing consulting
                                           </p>
                                             
@@ -1162,14 +1162,14 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                                         <div className="flex justify-center items-center flex-col p-3">
                                           <p className="w-full flex mb-1 font-bold text-2xl">Année scolaire 2024 :</p>
-                                          <p className="text-xl">
+                                          <p className="text-xl text-black">
                                                 Formation pratique à Nan Digital Academy
                                           </p>
                                           
                                         </div>
                                          <div className="flex justify-center items-center flex-col p-3">
                                           <p className="w-full flex mb-1 font-bold text-2xl">Année scolaire 2020 :</p>
-                                          <p className="text-xl">
+                                          <p className="text-xl text-black">
                                               BTS en Informatique Développeur d’Applications à Atlantique International Business School
                                           </p>
                                           
@@ -1246,14 +1246,14 @@ const refSection = useRef<HTMLDivElement | null>(null);
                               <section className="py-40 bg-gray-300" id="service">
                                     <div className="max-w-7xl mx-auto px-6">
 
-                                          <h2 className="text-4xl font-bold text-center mb-12">
+                                          <h2 className="text-4xl text-black font-bold text-center mb-12">
                                           Mes Services
                                           </h2>
 
                                           <div className="grid md:grid-cols-3 gap-8">
                                               <div className="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition">
                                               <div className="text-indigo-600 text-4xl mb-4">💻</div>
-                                              <h3 className="text-xl font-semibold mb-3">Développement Web</h3>
+                                              <h3 className="text-xl text-black font-semibold mb-3">Développement Web</h3>
                                               <p className="text-gray-600">
                                               Création de sites modernes rapides et optimisés.
                                               </p>
@@ -1262,7 +1262,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                                               <div className="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition">
                                               <div className="text-indigo-600 text-4xl mb-4">📱</div>
-                                              <h3 className="text-xl font-semibold mb-3">Applications Mobile</h3>
+                                              <h3 className="text-xl text-black font-semibold mb-3">Applications Mobile</h3>
                                               <p className="text-gray-600">
                                               Développement d'applications performantes pour Android et iOS.
                                               </p>
@@ -1270,7 +1270,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
                                               <div className="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition">
                                               <div className="text-indigo-600 text-4xl mb-4">🎨</div>
-                                              <h3 className="text-xl font-semibold mb-3">UI / UX Design</h3>
+                                              <h3 className="text-xl text-black font-semibold mb-3">UI / UX Design</h3>
                                               <p className="text-gray-600">
                                               Conception d'interfaces modernes et faciles à utiliser.
                                               </p>
@@ -1284,48 +1284,48 @@ const refSection = useRef<HTMLDivElement | null>(null);
                               <section className ="py-40 bg-gray-100" id="contact">
                                 <div className ="max-w-3xl mx-auto px-9 bg-gray-300 p-9 rounded-2xl">
 
-                                      <h2 className ="text-4xl font-bold text-center mb-10">
+                                      <h2 className ="text-4xl text-black font-bold text-center mb-10">
                                       Contactez-moi
                                       </h2>
                                   <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg space-y-6">
 
                                     <div>
-                                      <label className="block mb-2 font-medium">Nom</label>
+                                      <label className="block mb-2 font-medium text-black">Nom</label>
                                       <input
                                         type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         placeholder="Bassole arnaud"
-                                        className={`w-full border text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
+                                        className={`w-full border text-xl text-black rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
                                         ${errors.name ? "border-red-500 focus:ring-red-500 transition" : "border-gray-300 focus:ring-indigo-500 transition"}`}
                                       />
                                       {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                                     </div>
 
                                     <div>
-                                      <label className="block mb-2 font-medium">Email</label>
+                                      <label className="block mb-2 font-medium text-black">Email</label>
                                       <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="Bassole@example.com"
-                                        className={`w-full border text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
+                                        className={`w-full border text-xl text-black rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
                                         ${errors.email ? "border-red-500 focus:ring-red-500 transition" : "border-gray-300 focus:ring-indigo-500 transition"}`}
                                       />
                                       {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                                     </div>
 
                                     <div>
-                                      <label className="block mb-2 font-medium">Message</label>
+                                      <label className="block mb-2 font-medium text-black">Message</label>
                                       <textarea
                                         name="text"
                                         value={formData.text}
                                         onChange={handleChange}
                                         rows={5}
                                         placeholder="Décrivez votre projet....."
-                                        className={`w-full border text-xl rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
+                                        className={`w-full border text-xl text-black rounded-lg px-4 py-3 focus:outline-none focus:ring-2 
                                         ${errors.text ? "border-red-500 focus:ring-red-500 transition" : "border-gray-300 focus:ring-indigo-500 transition"}`}
                                       ></textarea>
                                       {errors.text && <p className="text-red-500 text-sm mt-1">{errors.text}</p>}
@@ -1463,7 +1463,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
 
           {/* STACK */}
           <div className="bg-gray-300 rounded-2xl p-7">
-            <h1 className="font-bold text-2xl mb-3">STACK</h1>
+            <h1 className="font-bold text-black text-2xl mb-3">STACK</h1>
 
             <div className="bg-gray-700 p-4 rounded-2xl grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {selectedItem.stack.map((tech, index) => (
