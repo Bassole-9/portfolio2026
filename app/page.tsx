@@ -832,7 +832,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                           linkedin
                                           <span className="
                                             absolute left-1/2 -translate-x-1/2 top-full
-                                            w-2 h-2 bg-black rotate-45
+                                            w-2 h-2 bg-white rotate-45
                                           "></span>
                                         </span>
 
@@ -854,7 +854,7 @@ const refSection = useRef<HTMLDivElement | null>(null);
                                         whatsapp
                                           <span className="
                                             absolute left-1/2 -translate-x-1/2 top-full
-                                            w-2 h-2 bg-black rotate-45
+                                            w-2 h-2 bg-white rotate-45
                                           "></span>
                                         </span>
 
